@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../data/translations';
 
 export default function ContactForm() {
+  const { language } = useLanguage();
+  const t = translations[language];
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -49,13 +53,13 @@ export default function ContactForm() {
       transition={{ duration: 0.5 }}
       className="bg-white p-8 rounded-2xl shadow-lg"
     >
-      <h3 className="text-2xl font-bold text-gray-900 mb-6">Send me a message</h3>
+      <h3 className="text-2xl font-bold text-gray-900 mb-6">{t.contact.sendMessage}</h3>
       
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-              Name *
+              {t.contact.name}
             </label>
             <input
               type="text"
@@ -65,13 +69,13 @@ export default function ContactForm() {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-              placeholder="Your name"
+              placeholder={t.contact.namePlaceholder}
             />
           </div>
           
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              Email *
+              {t.contact.email}
             </label>
             <input
               type="email"
@@ -81,14 +85,14 @@ export default function ContactForm() {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-              placeholder="your.email@example.com"
+              placeholder={t.contact.emailPlaceholder}
             />
           </div>
         </div>
         
         <div>
           <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-            Subject
+            {t.contact.subject}
           </label>
           <input
             type="text"
@@ -97,13 +101,13 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-            placeholder="What's this about?"
+            placeholder={t.contact.subjectPlaceholder}
           />
         </div>
         
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-            Message *
+            {t.contact.message}
           </label>
           <textarea
             id="message"
@@ -113,7 +117,7 @@ export default function ContactForm() {
             required
             rows={5}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
-            placeholder="Tell me about your project, opportunity, or just say hello!"
+            placeholder={t.contact.messagePlaceholder}
           />
         </div>
         
@@ -128,7 +132,7 @@ export default function ContactForm() {
           whileHover={!isSubmitting ? { scale: 1.02 } : {}}
           whileTap={!isSubmitting ? { scale: 0.98 } : {}}
         >
-          {isSubmitting ? 'Opening Email...' : 'Send Message'}
+          {isSubmitting ? t.contact.sending : t.contact.sendButton}
         </motion.button>
         
         {submitStatus === 'success' && (
@@ -137,7 +141,7 @@ export default function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg"
           >
-            ✅ Your email client should open with the message ready to send!
+            {t.contact.successMessage}
           </motion.div>
         )}
         
@@ -147,14 +151,14 @@ export default function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg"
           >
-            ❌ Something went wrong. Please try again or email me directly.
+            {t.contact.errorMessage}
           </motion.div>
         )}
       </form>
       
       <div className="mt-6 pt-6 border-t border-gray-200">
         <p className="text-sm text-gray-600 text-center">
-          Or reach out directly: <br />
+          {t.contact.orReachOut} <br />
           <a href="mailto:bergenthalandrew@gmail.com" className="text-blue-600 hover:underline">
             bergenthalandrew@gmail.com
           </a> • 

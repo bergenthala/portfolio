@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-export default function FancyFeature() {
-  const [code, setCode] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
-  
-  const codeSnippet = `// AI-Powered Portfolio
+const codeSnippet = `// AI-Powered Portfolio
 const portfolio = {
   name: "Andrew Bergenthal",
   skills: ["React", "TypeScript", "AI/ML"],
@@ -19,7 +15,13 @@ const portfolio = {
   }
 };`;
 
+export default function FancyFeature() {
+  const [code, setCode] = useState('');
+  const [isTyping, setIsTyping] = useState(true);
+
   useEffect(() => {
+    setCode('');
+    setIsTyping(true);
     let index = 0;
     const timer = setInterval(() => {
       if (index < codeSnippet.length) {

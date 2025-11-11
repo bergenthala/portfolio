@@ -1,9 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../data/translations';
 
 export default function Projects() {
+  const { language } = useLanguage();
+  const t = translations[language];
   const featuredProjects = projects.filter(project => project.featured);
+  
+  // Map project IDs to translation keys
+  const getProjectTranslation = (projectId: number) => {
+    const translationMap: Record<number, keyof typeof t.projects.items> = {
+      1: 'shopu',
+      2: 'oldbailey',
+      3: 'aiExtension',
+      4: 'fidelityPdf'
+    };
+    return t.projects.items[translationMap[projectId]];
+  };
   
   return (
     <section id="projects" className="py-20 bg-white">
@@ -15,11 +30,13 @@ export default function Projects() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">
-            Featured Projects
+            {t.projects.title}
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {featuredProjects.map((project, index) => (
+            {featuredProjects.map((project, index) => {
+              const projectT = getProjectTranslation(project.id);
+              return (
               <motion.div
                 key={project.id}
                 className="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
@@ -35,11 +52,11 @@ export default function Projects() {
                 
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-3 text-gray-900">
-                    {project.title}
+                    {projectT?.title || project.title}
                   </h3>
                   
                   <p className="text-gray-600 mb-4 leading-relaxed">
-                    {project.description}
+                    {projectT?.description || project.description}
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -63,7 +80,7 @@ export default function Projects() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        GitHub
+                        {t.projects.github}
                       </motion.a>
                     )}
                     {project.live && (
@@ -75,13 +92,14 @@ export default function Projects() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        Live Demo
+                        {t.projects.liveDemo}
                       </motion.a>
                     )}
                   </div>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </motion.div>
       </div>

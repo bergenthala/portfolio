@@ -1,10 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations, Language } from '../data/translations';
 
 export default function Hero() {
+  const { language } = useLanguage();
   const [particles, setParticles] = useState<Array<{id: number, x: number, y: number, delay: number}>>([]);
   const [clickEffects, setClickEffects] = useState<Array<{id: number, x: number, y: number}>>([]);
   const [scrollY, setScrollY] = useState(0);
+  const [rotatingGreeting, setRotatingGreeting] = useState<Language>('en');
+  const currentIndexRef = useRef(0);
+  
+  const t = translations[language];
+  
+  // Rotate greeting between languages
+  useEffect(() => {
+    const languages: Language[] = ['en', 'ja', 'zh'];
+    // Start from current language
+    const startIndex = languages.indexOf(language);
+    currentIndexRef.current = startIndex >= 0 ? startIndex : 0;
+    setRotatingGreeting(languages[currentIndexRef.current]);
+    
+    const interval = setInterval(() => {
+      currentIndexRef.current = (currentIndexRef.current + 1) % languages.length;
+      setRotatingGreeting(languages[currentIndexRef.current]);
+    }, 3000); // Change every 3 seconds
+    
+    return () => clearInterval(interval);
+  }, [language]);
+  
+  const rotatingGreetings = {
+    en: "Hi, I'm",
+    ja: "こんにちは、私は",
+    zh: "你好，我是"
+  };
 
   // Generate floating particles
   useEffect(() => {
@@ -131,7 +160,18 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Hi, I'm{' '}
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={rotatingGreeting}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="inline-block mr-2"
+              >
+                {rotatingGreetings[rotatingGreeting]}
+              </motion.span>
+            </AnimatePresence>
             <span className="text-blue-600">Andrew</span>
           </motion.h1>
           
@@ -141,7 +181,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            MSE Computer Science Student | Software Engineer | AI & Software Enthusiast
+            {t.hero.subtitle}
           </motion.p>
           
           <motion.p 
@@ -150,7 +190,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Graduate student at University of Pennsylvania with experience at Adobe and Fidelity. Passionate about AI, Machine Learning, FinTech, and Full-Stack Development.
+            {t.hero.description}
           </motion.p>
           
           <motion.div 
@@ -164,7 +204,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              View My Work
+              {t.hero.viewWork}
             </motion.button>
             <motion.a
               href="/Resume_2025.pdf"
@@ -173,7 +213,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Download Resume
+              {t.hero.downloadResume}
             </motion.a>
           </motion.div>
         </motion.div>

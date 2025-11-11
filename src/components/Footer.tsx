@@ -1,8 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ContactForm from './ContactForm';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../data/translations';
 
 export default function Footer() {
+  const { language } = useLanguage();
+  const t = translations[language];
+  
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/bergenthala', icon: '🐙' },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/andrew-b-92810518a', icon: '💼' },
@@ -21,10 +26,9 @@ export default function Footer() {
         >
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-3xl font-bold mb-6">Let's Connect!</h3>
+              <h3 className="text-3xl font-bold mb-6">{t.footer.letsConnect}</h3>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                I'm always interested in new opportunities, collaborations, and interesting projects. 
-                Feel free to reach out if you'd like to work together or just have a chat about technology!
+                {t.footer.description}
               </p>
               
               <div className="flex space-x-4 mb-8">
@@ -67,7 +71,7 @@ export default function Footer() {
                 <div className="flex items-center">
                   <span className="text-blue-400 mr-3">📄</span>
                   <a href="/Resume_2025.pdf" target="_blank" className="hover:text-blue-300 transition-colors">
-                    Download Resume
+                    {t.footer.downloadResume}
                   </a>
                 </div>
               </div>
@@ -80,10 +84,10 @@ export default function Footer() {
           
           <div className="border-t border-gray-800 mt-12 pt-8 text-center">
             <p className="text-gray-400">
-              © {new Date().getFullYear()} Andrew Bergenthal. All rights reserved.
+              {t.footer.copyright.replace('{year}', new Date().getFullYear().toString())}
             </p>
             <p className="text-gray-500 text-sm mt-2">
-              Built with React, TypeScript, and Framer Motion
+              {t.footer.builtWith}
             </p>
           </div>
         </motion.div>

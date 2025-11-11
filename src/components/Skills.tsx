@@ -1,8 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { skills } from '../data/skills';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../data/translations';
 
 export default function Skills() {
+  const { language } = useLanguage();
+  const t = translations[language];
+  
   return (
     <section id="skills" className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
@@ -13,7 +18,7 @@ export default function Skills() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">
-            Skills & Technologies
+            {t.skills.title}
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

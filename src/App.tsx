@@ -7,19 +7,22 @@ import Career from './components/Career';
 import FancyFeature from './components/FancyFeature';
 import InteractiveDemos from './components/InteractiveDemos';
 import Footer from './components/Footer';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Career />
-      <InteractiveDemos />
-      <FancyFeature />
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-gray-50 text-gray-900">
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Career />
+        <InteractiveDemos />
+        <FancyFeature />
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
