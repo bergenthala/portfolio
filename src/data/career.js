@@ -2,21 +2,38 @@ export const career = [
   {
     id: 1,
     company: "Adobe",
+    position: "Returning Software Engineer Intern",
+    duration: "May 2026 - Aug 2026",
+    location: "San Jose, CA",
+    description: "Delivered a React Native mobile experience for one of Adobe's enterprise AI products, integrating multiple backend data sources into a unified feed to proactively surface relevant, user-configurable alerts to customers. Developed a new voice agent worker integrating speech-to-text, LLM-powered workflows, and text-to-speech, partnering with the infrastructure-owning team.",
+    technologies: ["React Native", "Node.js", "REST APIs", "LiveKit", "Speech-to-Text", "LLM Integration", "Text-to-Speech", "Claude", "MCP"],
+    achievements: [
+      "Delivered a React Native mobile experience enabling proactive, user-configurable alerts from unified backend data sources",
+      "Developed a new voice agent worker modeled on an existing implementation, saving an estimated 3 weeks of setup",
+      "Earned a live SVP demonstration within 1.5 months of the internship",
+      "Accelerated personal development velocity by nearly 2x using Claude, Claude Skills, and MCP for codebase exploration, debugging, and implementation"
+    ],
+    current: true
+  },
+  {
+    id: 2,
+    company: "Adobe",
     position: "Software Engineer Intern",
     duration: "May 2025 - Aug 2025",
     location: "San Jose, CA",
-    description: "Developed a feature-rich Chrome Extension prototype in Vite + React that summarizes page content in real-time and incorporates a unique, patent-pending feature for enhanced context awareness. Collaborated with designers, PMs, and engineers to deliver feature-complete MVP on schedule for internal review.",
+    description: "Developed a feature-rich Chrome Extension prototype in Vite + React that summarizes page content in real-time and incorporates a unique, patent-pending feature for enhanced context awareness. Core functionality was later featured at Adobe Summit. Collaborated with designers, PMs, and engineers to deliver feature-complete MVP on schedule for internal review.",
     technologies: ["Vite", "React", "JavaScript", "Chrome Extension API", "Adobe RSP UI", "LLM Integration"],
     achievements: [
       "Developed Chrome Extension with real-time page content summarization",
-      "Integrated unique patent-pending feature for enhanced context awareness",
+      "Integrated unique patent-pending feature for enhanced context awareness (U.S. patent application filed May 2026)",
+      "Core functionality later featured at Adobe Summit",
       "Collaborated with cross-functional teams to deliver MVP on schedule",
       "Integrated Adobe RSP UI with backend APIs for real-time LLM interactions"
     ],
     current: false
   },
   {
-    id: 2,
+    id: 3,
     company: "Fidelity Investments",
     position: "Full Stack Software Engineer Intern",
     duration: "Jun 2024 - Aug 2024",
@@ -33,7 +50,7 @@ export const career = [
     current: false
   },
   {
-    id: 3,
+    id: 4,
     company: "Tongues Language Games",
     position: "Lead Backend Developer",
     duration: "Dec 2022 - Mar 2024",
