@@ -51,14 +51,14 @@ export default function ContactForm() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white p-8 rounded-2xl shadow-lg"
+      className="bg-[var(--surface)] p-8 rounded-2xl shadow-lg border border-[var(--border)]"
     >
-      <h3 className="text-2xl font-bold text-gray-900 mb-6">{t.contact.sendMessage}</h3>
+      <h3 className="text-2xl font-bold text-ink mb-6">{t.contact.sendMessage}</h3>
       
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-muted mb-2">
               {t.contact.name}
             </label>
             <input
@@ -68,13 +68,13 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 border border-[var(--border)] rounded-lg bg-[var(--bg)] text-ink focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors"
               placeholder={t.contact.namePlaceholder}
             />
           </div>
           
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-muted mb-2">
               {t.contact.email}
             </label>
             <input
@@ -84,14 +84,14 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 border border-[var(--border)] rounded-lg bg-[var(--bg)] text-ink focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors"
               placeholder={t.contact.emailPlaceholder}
             />
           </div>
         </div>
         
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="subject" className="block text-sm font-medium text-muted mb-2">
             {t.contact.subject}
           </label>
           <input
@@ -100,13 +100,13 @@ export default function ContactForm() {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-[var(--border)] rounded-lg bg-[var(--bg)] text-ink focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors"
             placeholder={t.contact.subjectPlaceholder}
           />
         </div>
         
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="message" className="block text-sm font-medium text-muted mb-2">
             {t.contact.message}
           </label>
           <textarea
@@ -116,7 +116,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             rows={5}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+            className="w-full px-4 py-3 border border-[var(--border)] rounded-lg bg-[var(--bg)] text-ink focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors resize-none"
             placeholder={t.contact.messagePlaceholder}
           />
         </div>
@@ -126,8 +126,8 @@ export default function ContactForm() {
           disabled={isSubmitting}
           className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
             isSubmitting
-              ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-blue-600 hover:bg-blue-700 text-white'
+              ? 'bg-slate-400 text-slate-700 cursor-not-allowed'
+              : 'bg-sky-600 hover:bg-sky-500 text-white'
           }`}
           whileHover={!isSubmitting ? { scale: 1.02 } : {}}
           whileTap={!isSubmitting ? { scale: 0.98 } : {}}
@@ -139,7 +139,7 @@ export default function ContactForm() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg"
+            className="p-4 bg-green-100 dark:bg-emerald-950/50 border border-green-400 dark:border-emerald-700 text-green-700 dark:text-emerald-300 rounded-lg"
           >
             {t.contact.successMessage}
           </motion.div>
@@ -149,20 +149,20 @@ export default function ContactForm() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg"
+            className="p-4 bg-red-100 dark:bg-rose-950/50 border border-red-400 dark:border-rose-700 text-red-700 dark:text-rose-300 rounded-lg"
           >
             {t.contact.errorMessage}
           </motion.div>
         )}
       </form>
       
-      <div className="mt-6 pt-6 border-t border-gray-200">
-        <p className="text-sm text-gray-600 text-center">
+      <div className="mt-6 pt-6 border-t border-[var(--border)]">
+        <p className="text-sm text-muted text-center">
           {t.contact.orReachOut} <br />
-          <a href="mailto:bergenthalandrew@gmail.com" className="text-blue-600 hover:underline">
+          <a href="mailto:bergenthalandrew@gmail.com" className="text-sky-600 dark:text-sky-400 hover:underline">
             bergenthalandrew@gmail.com
           </a> • 
-          <a href="tel:+13853472528" className="text-blue-600 hover:underline ml-2">
+          <a href="tel:+13853472528" className="text-sky-600 dark:text-sky-400 hover:underline ml-2">
             +1 (385) 347-2528
           </a>
         </p>

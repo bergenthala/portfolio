@@ -1,50 +1,53 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { translations, Language } from '../data/translations';
 
 export default function Navbar() {
   const { language, setLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const t = translations[language];
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
-  
+
   const navItems = [
-    { name: t.nav.about, href: '#about' },
-    { name: t.nav.skills, href: '#skills' },
-    { name: t.nav.projects, href: '#projects' },
     { name: t.nav.career, href: '#career' },
+    { name: t.nav.projects, href: '#projects' },
+    { name: t.nav.skills, href: '#skills' },
     { name: t.nav.demos, href: '#demos' },
-    { name: t.nav.contact, href: '#contact' }
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.contact, href: '#contact' },
   ];
-  
+
   const languages: { code: Language; name: string; flag: string }[] = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'ja', name: '日本語', flag: '🇯🇵' },
-    { code: 'zh', name: '中文', flag: '🇨🇳' }
+    { code: 'zh', name: '中文', flag: '🇨🇳' },
   ];
 
   return (
-    <motion.nav 
-      className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50"
+    <motion.nav
+      className="fixed top-0 z-50 w-full border-b border-[var(--border)] backdrop-blur-md"
+      style={{ background: 'var(--nav-bg)' }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
+      <div className="mx-auto max-w-6xl px-6 py-4">
+        <div className="flex items-center justify-between">
           <motion.div
-            className="text-xl font-bold text-gray-900"
+            className="text-xl font-bold text-ink"
             whileHover={{ scale: 1.05 }}
           >
             Andrew Bergenthal
           </motion.div>
-          
-          <div className="hidden md:flex space-x-8 items-center">
+
+          <div className="hidden items-center space-x-8 md:flex">
             {navItems.map((item) => (
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-muted transition-colors hover:text-ink"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -52,31 +55,40 @@ export default function Navbar() {
               </motion.a>
             ))}
           </div>
-          
-          <div className="flex items-center gap-4">
-            {/* Language Selector */}
+
+          <div className="flex items-center gap-2 md:gap-3">
+            <motion.button
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-2)] text-lg text-ink transition-colors hover:border-sky-400"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {theme === 'dark' ? '☀️' : '🌙'}
+            </motion.button>
+
             <div className="relative">
               <motion.button
                 onClick={() => setShowLanguageMenu(!showLanguageMenu)}
-                className="flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="flex items-center justify-center gap-2 rounded-full bg-[var(--surface-2)] px-3 py-2 transition-colors hover:opacity-90 md:px-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-lg flex items-center justify-center">
-                  {languages.find(l => l.code === language)?.flag}
+                <span className="flex items-center justify-center text-lg">
+                  {languages.find((l) => l.code === language)?.flag}
                 </span>
-                <span className="hidden sm:inline text-sm font-medium text-gray-700 flex items-center">
-                  {languages.find(l => l.code === language)?.name}
+                <span className="hidden items-center text-sm font-medium text-ink sm:inline">
+                  {languages.find((l) => l.code === language)?.name}
                 </span>
-                <span className="text-gray-500 text-xs flex items-center">▼</span>
+                <span className="flex items-center text-xs text-muted">▼</span>
               </motion.button>
-              
+
               {showLanguageMenu && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden z-50"
+                  className="absolute right-0 z-50 mt-2 w-40 overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)] shadow-lg"
                 >
                   {languages.map((lang) => (
                     <motion.button
@@ -85,25 +97,25 @@ export default function Navbar() {
                         setLanguage(lang.code);
                         setShowLanguageMenu(false);
                       }}
-                      className={`w-full px-4 py-3 flex items-center gap-3 hover:bg-gray-100 transition-colors ${
-                        language === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                      className={`flex w-full items-center gap-3 px-4 py-3 transition-colors hover:bg-[var(--bg-alt)] ${
+                        language === lang.code ? 'bg-sky-500/10 text-sky-600 dark:text-sky-300' : 'text-ink'
                       }`}
                       whileHover={{ x: 2 }}
                     >
                       <span className="text-lg">{lang.flag}</span>
                       <span className="text-sm font-medium">{lang.name}</span>
                       {language === lang.code && (
-                        <span className="ml-auto text-blue-600">✓</span>
+                        <span className="ml-auto text-sky-600 dark:text-sky-300">✓</span>
                       )}
                     </motion.button>
                   ))}
                 </motion.div>
               )}
             </div>
-            
+
             <motion.a
               href="#contact"
-              className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition-colors inline-block text-sm md:text-base"
+              className="inline-block rounded-full bg-sky-600 px-4 py-2 text-sm text-white transition-colors hover:bg-sky-500 md:px-6 md:text-base"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -113,13 +125,9 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      
-      {/* Close language menu when clicking outside */}
+
       {showLanguageMenu && (
-        <div
-          className="fixed inset-0 z-40"
-          onClick={() => setShowLanguageMenu(false)}
-        />
+        <div className="fixed inset-0 z-40" onClick={() => setShowLanguageMenu(false)} />
       )}
     </motion.nav>
   );

@@ -96,8 +96,8 @@ export const translations: Record<Language, Translations> = {
   en: {
     hero: {
       greeting: "Hi, I'm",
-      subtitle: "MSE Computer Science Student | Software Engineer | AI & Software Enthusiast",
-      description: "Graduate student at University of Pennsylvania with experience at Adobe and Fidelity. Passionate about AI, Machine Learning, FinTech, and Full-Stack Development.",
+      subtitle: "2nd-Year MSE Computer Science Student | Software Engineer | AI & Software Enthusiast",
+      description: "Second-year MSE student at the University of Pennsylvania with experience at Adobe and Fidelity. Passionate about AI, Machine Learning, FinTech, and Full-Stack Development.",
       viewWork: "View My Work",
       downloadResume: "Download Resume"
     },
@@ -112,8 +112,8 @@ export const translations: Record<Language, Translations> = {
     },
     about: {
       title: "About Me",
-      heading: "Computer Science Graduate Student & Software Engineer",
-      paragraph1: "Hi, I'm Andrew, a Computer Science graduate student at the University of Pennsylvania, pursuing my MSE in Computer and Information Science. I recently completed my BS in Computer Science (Honors) at the University of Utah with a 3.81 GPA and Dean's List recognition.",
+      heading: "Second-Year Computer Science Graduate Student & Software Engineer",
+      paragraph1: "Hi, I'm Andrew, a second-year Computer Science graduate student at the University of Pennsylvania, pursuing my MSE in Computer and Information Science. I completed my BS in Computer Science (Honors) at the University of Utah with a 3.81 GPA and Dean's List recognition.",
       paragraph2: "With experience at top companies like Adobe and Fidelity Investments, I've worked on everything from React Native mobile experiences and LLM-powered voice agents to AI-powered browser extensions with patent-pending features. I'm passionate about AI, Machine Learning, FinTech, and Full-Stack Development.",
       currentEducation: "Current Education",
       previousDegree: "Previous Degree"
@@ -219,8 +219,8 @@ export const translations: Record<Language, Translations> = {
   ja: {
     hero: {
       greeting: "こんにちは、私は",
-      subtitle: "MSEコンピュータサイエンス学生 | ソフトウェアエンジニア | AI・ソフトウェア愛好家",
-      description: "ペンシルベニア大学の大学院生で、AdobeとFidelityでの経験があります。AI、機械学習、FinTech、フルスタック開発に情熱を持っています。",
+      subtitle: "MSEコンピュータサイエンス2年次学生 | ソフトウェアエンジニア | AI・ソフトウェア愛好家",
+      description: "ペンシルベニア大学のMSE2年次の大学院生で、AdobeとFidelityでの経験があります。AI、機械学習、FinTech、フルスタック開発に情熱を持っています。",
       viewWork: "作品を見る",
       downloadResume: "履歴書をダウンロード"
     },
@@ -235,8 +235,8 @@ export const translations: Record<Language, Translations> = {
     },
     about: {
       title: "自己紹介",
-      heading: "コンピュータサイエンス大学院生 & ソフトウェアエンジニア",
-      paragraph1: "こんにちは、私はアンドリューです。ペンシルベニア大学でコンピュータサイエンスの大学院生として、コンピュータ・情報科学のMSEを追求しています。最近、ユタ大学でコンピュータサイエンスの学士号（優等）を3.81のGPAと学部長表彰を受けて修了しました。",
+      heading: "コンピュータサイエンス大学院2年次生 & ソフトウェアエンジニア",
+      paragraph1: "こんにちは、私はアンドリューです。ペンシルベニア大学でコンピュータサイエンスの大学院2年次生として、コンピュータ・情報科学のMSEを追求しています。ユタ大学でコンピュータサイエンスの学士号（優等）を3.81のGPAと学部長表彰を受けて修了しました。",
       paragraph2: "AdobeやFidelity Investmentsなどのトップ企業での経験を持ち、React Nativeのモバイル体験やLLMを活用したボイスエージェントから、特許出願中の機能を備えたAI搭載ブラウザ拡張機能まで、幅広く取り組んできました。AI、機械学習、FinTech、フルスタック開発に情熱を持っています。",
       currentEducation: "現在の教育",
       previousDegree: "以前の学位"
@@ -342,8 +342,8 @@ export const translations: Record<Language, Translations> = {
   zh: {
     hero: {
       greeting: "你好，我是",
-      subtitle: "MSE计算机科学学生 | 软件工程师 | AI和软件爱好者",
-      description: "宾夕法尼亚大学研究生，在Adobe和Fidelity有工作经验。对AI、机器学习、金融科技和全栈开发充满热情。",
+      subtitle: "MSE计算机科学二年级学生 | 软件工程师 | AI和软件爱好者",
+      description: "宾夕法尼亚大学MSE二年级研究生，在Adobe和Fidelity有工作经验。对AI、机器学习、金融科技和全栈开发充满热情。",
       viewWork: "查看我的作品",
       downloadResume: "下载简历"
     },
@@ -358,8 +358,8 @@ export const translations: Record<Language, Translations> = {
     },
     about: {
       title: "关于我",
-      heading: "计算机科学研究生 & 软件工程师",
-      paragraph1: "你好，我是安德鲁，宾夕法尼亚大学计算机科学研究生，正在攻读计算机与信息科学硕士学位。最近，我在犹他大学完成了计算机科学学士学位（荣誉），GPA为3.81，并获得院长名单认可。",
+      heading: "计算机科学研究生二年级 & 软件工程师",
+      paragraph1: "你好，我是安德鲁，宾夕法尼亚大学计算机科学研究生二年级学生，正在攻读计算机与信息科学硕士学位。我在犹他大学完成了计算机科学学士学位（荣誉），GPA为3.81，并获得院长名单认可。",
       paragraph2: "在Adobe和富达投资等顶级公司拥有工作经验，我从React Native移动体验、LLM驱动的语音代理，到具有专利申请功能的AI驱动浏览器扩展，涉猎广泛。我对AI、机器学习、金融科技和全栈开发充满热情。",
       currentEducation: "当前教育",
       previousDegree: "之前的学位"

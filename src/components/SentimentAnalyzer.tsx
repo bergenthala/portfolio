@@ -196,9 +196,9 @@ export default function SentimentAnalyzer() {
 
   const getSentimentColor = (sentiment: string) => {
     switch (sentiment) {
-      case 'positive': return 'text-green-600 bg-green-100';
-      case 'negative': return 'text-red-600 bg-red-100';
-      default: return 'text-gray-600 bg-gray-100';
+      case 'positive': return 'text-green-700 bg-green-100 dark:text-emerald-300 dark:bg-emerald-950/50';
+      case 'negative': return 'text-red-700 bg-red-100 dark:text-rose-300 dark:bg-rose-950/50';
+      default: return 'text-slate-700 bg-slate-100 dark:text-slate-300 dark:bg-slate-800';
     }
   };
 
@@ -226,21 +226,24 @@ export default function SentimentAnalyzer() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
+      initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="bg-white p-6 rounded-2xl shadow-lg max-w-2xl mx-auto"
+      className="w-full max-w-2xl mx-auto"
     >
-      <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">AI Sentiment Analyzer</h3>
+      <h3 className="text-2xl font-bold text-ink mb-2">Sentiment Analyzer</h3>
+      <p className="text-sm text-muted mb-6">
+        Lexical NLP with negation + intensifiers — not a neural net, but a transparent scoring pipeline.
+      </p>
       
       <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-muted mb-2">
           Enter text to analyze:
         </label>
         <textarea
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
           placeholder="Type your text here to analyze its sentiment..."
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+          className="w-full px-4 py-3 border border-[var(--border)] rounded-lg bg-[var(--bg)] text-ink focus:ring-2 focus:ring-sky-500 focus:border-transparent resize-none"
           rows={3}
         />
       </div>
@@ -250,8 +253,8 @@ export default function SentimentAnalyzer() {
         disabled={!inputText.trim() || isAnalyzing}
         className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
           !inputText.trim() || isAnalyzing
-            ? 'bg-gray-400 cursor-not-allowed'
-            : 'bg-blue-600 hover:bg-blue-700 text-white'
+            ? 'bg-slate-300 text-slate-600 cursor-not-allowed'
+            : 'bg-sky-600 hover:bg-sky-700 text-white'
         }`}
         whileHover={!isAnalyzing && inputText.trim() ? { scale: 1.02 } : {}}
         whileTap={!isAnalyzing && inputText.trim() ? { scale: 0.98 } : {}}
@@ -268,13 +271,13 @@ export default function SentimentAnalyzer() {
 
       {/* Sample Texts */}
       <div className="mt-6">
-        <p className="text-sm text-gray-600 mb-3">Try these sample texts:</p>
-        <div className="space-y-2">
-          {sampleTexts.map((text, index) => (
+        <p className="text-sm text-muted mb-3">Try these sample texts:</p>
+        <div className="space-y-2 max-h-40 overflow-y-auto pr-1">
+          {sampleTexts.slice(0, 5).map((text, index) => (
             <motion.button
               key={index}
               onClick={() => setInputText(text)}
-              className="w-full text-left p-2 text-sm bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
+              className="w-full text-left p-2 text-sm text-slate-800 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg transition-colors"
               whileHover={{ scale: 1.01 }}
             >
               "{text}"
@@ -286,7 +289,7 @@ export default function SentimentAnalyzer() {
       {/* Results */}
       {results.length > 0 && (
         <div className="mt-8">
-          <h4 className="text-lg font-semibold text-gray-800 mb-4">Analysis Results:</h4>
+          <h4 className="text-lg font-semibold text-ink mb-4">Analysis Results:</h4>
           <div className="space-y-4">
             {results.map((result, index) => (
               <motion.div
@@ -294,7 +297,7 @@ export default function SentimentAnalyzer() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="p-4 border border-gray-200 rounded-lg"
+                className="p-4 border border-[var(--border)] rounded-lg bg-[var(--bg)]"
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
@@ -302,21 +305,21 @@ export default function SentimentAnalyzer() {
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${getSentimentColor(result.sentiment)}`}>
                       {result.sentiment.toUpperCase()}
                     </span>
-                    <span className="text-sm text-gray-600">
+                    <span className="text-sm text-muted">
                       {result.confidence}% confidence
                     </span>
                   </div>
                 </div>
                 
-                <p className="text-gray-800 mb-2">"{result.text}"</p>
+                <p className="text-ink mb-2">"{result.text}"</p>
                 
                 {result.keywords.length > 0 && (
                   <div className="flex flex-wrap gap-1">
-                    <span className="text-xs text-gray-500">Keywords:</span>
+                    <span className="text-xs text-muted">Keywords:</span>
                     {result.keywords.map((keyword, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+                        className="tag-chip tag-chip-sm"
                       >
                         {keyword}
                       </span>
@@ -329,8 +332,8 @@ export default function SentimentAnalyzer() {
         </div>
       )}
 
-      <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-        <p className="text-sm text-blue-800">
+      <div className="mt-6 p-4 info-card info-card-accent">
+        <p className="text-sm info-card-label">
           <strong>How it works:</strong> This demo uses keyword-based sentiment analysis with confidence scoring. 
           In a real implementation, this would use machine learning models like BERT or RoBERTa for more accurate results.
         </p>

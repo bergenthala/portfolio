@@ -27,7 +27,7 @@ export const projects = [
     technologies: ["Vite", "React", "JavaScript", "Chrome Extension API", "Adobe RSP UI", "LLM Integration"],
     github: null,
     live: null,
-    featured: true
+    featured: false
   },
   {
     id: 4,

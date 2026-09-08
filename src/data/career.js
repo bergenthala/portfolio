@@ -13,7 +13,7 @@ export const career = [
       "Earned a live demonstration to senior leadership (multiple VPs)",
       "Accelerated personal development velocity by nearly 2x using Claude, Claude Skills, and MCP for codebase exploration, debugging, and implementation"
     ],
-    current: true
+    current: false
   },
   {
     id: 2,

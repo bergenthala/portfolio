@@ -62,7 +62,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center">
                   <span className="text-blue-400 mr-3">📍</span>
-                  <span>Salt Lake City, UT</span>
+                  <span>Philadelphia, PA</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-blue-400 mr-3">🎓</span>
