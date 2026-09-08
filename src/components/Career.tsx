@@ -8,14 +8,15 @@ export default function Career() {
   const { language } = useLanguage();
   const t = translations[language];
   
-  // Map company names to translation keys
-  const getCareerTranslation = (company: string) => {
-    const translationMap: Record<string, keyof typeof t.career.items> = {
-      'Adobe': 'adobe',
-      'Fidelity Investments': 'fidelity',
-      'Tongues Language Games': 'tongues'
+  // Map job IDs to translation keys (two Adobe roles need distinct keys)
+  const getCareerTranslation = (jobId: number) => {
+    const translationMap: Record<number, keyof typeof t.career.items> = {
+      1: 'adobeReturning',
+      2: 'adobe',
+      3: 'fidelity',
+      4: 'tongues'
     };
-    return t.career.items[translationMap[company]];
+    return t.career.items[translationMap[jobId]];
   };
   
   return (
@@ -33,7 +34,7 @@ export default function Career() {
           
           <div className="space-y-8">
             {career.map((job, index) => {
-              const jobT = getCareerTranslation(job.company);
+              const jobT = getCareerTranslation(job.id);
               return (
               <motion.div
                 key={job.id}

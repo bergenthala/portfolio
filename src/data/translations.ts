@@ -45,6 +45,11 @@ export interface Translations {
     keyAchievements: string;
     technologiesUsed: string;
     items: {
+      adobeReturning: {
+        position: string;
+        description: string;
+        achievements: string[];
+      };
       adobe: {
         position: string;
         description: string;
@@ -109,7 +114,7 @@ export const translations: Record<Language, Translations> = {
       title: "About Me",
       heading: "Computer Science Graduate Student & Software Engineer",
       paragraph1: "Hi, I'm Andrew, a Computer Science graduate student at the University of Pennsylvania, pursuing my MSE in Computer and Information Science. I recently completed my BS in Computer Science (Honors) at the University of Utah with a 3.81 GPA and Dean's List recognition.",
-      paragraph2: "With experience at top companies like Adobe and Fidelity Investments, I've worked on everything from AI-powered browser extensions with patent-pending features to high-performance pdf readers. I'm passionate about AI, Machine Learning, FinTech, and Full-Stack Development.",
+      paragraph2: "With experience at top companies like Adobe and Fidelity Investments, I've worked on everything from React Native mobile experiences and LLM-powered voice agents to AI-powered browser extensions with patent-pending features. I'm passionate about AI, Machine Learning, FinTech, and Full-Stack Development.",
       currentEducation: "Current Education",
       previousDegree: "Previous Degree"
     },
@@ -123,7 +128,7 @@ export const translations: Record<Language, Translations> = {
       items: {
         shopu: {
           title: "ShopU",
-          description: "Senior capstone project: built a social commerce app for college students, delivering end-to-end MVP. Developed ML-based ranking algorithm (TF-IDF + boosting) to improve content relevance and designed 90% of UI components and CSS for rapid iteration."
+          description: "Senior capstone: built a full-stack social commerce platform for college students in a five-person Agile team, delivering an end-to-end MVP tested with 8 early pilot users. Developed an ML-based ranking algorithm using TF-IDF and boosting, improving precision and recall over a chronological baseline to better surface listings matching user interests."
         },
         oldbailey: {
           title: "OldBaileyProject",
@@ -145,25 +150,34 @@ export const translations: Record<Language, Translations> = {
       keyAchievements: "Key Achievements:",
       technologiesUsed: "Technologies Used:",
       items: {
+        adobeReturning: {
+          position: "Returning Software Engineer Intern",
+          description: "Delivered a React Native mobile experience for one of Adobe's enterprise AI products, integrating 3 backend data sources into a unified feed to proactively surface relevant, user-configurable alerts to customers. Developed a new voice agent worker integrating speech-to-text, LLM-powered workflows, and text-to-speech in partnership with the infrastructure-owning team.",
+          achievements: [
+            "Delivered a React Native mobile experience surfacing proactive, user-configurable alerts from 3 unified backend data sources",
+            "Developed a new voice agent worker modeled on an existing implementation, saving an estimated 3 weeks of setup",
+            "Earned a live demonstration to senior leadership (multiple VPs)",
+            "Accelerated personal development velocity by nearly 2x using Claude, Claude Skills, and MCP for codebase exploration, debugging, and implementation"
+          ]
+        },
         adobe: {
           position: "Software Engineer Intern",
-          description: "Developed a feature-rich Chrome Extension prototype in Vite + React that summarizes page content in real-time and incorporates a unique, patent-pending feature for enhanced context awareness. Collaborated with designers, PMs, and engineers to deliver feature-complete MVP on schedule for internal review.",
+          description: "Developed an AI-powered Chrome Extension using React and Vite that summarized webpage content in real time through LLM-powered contextual analysis; core functionality was later featured at Adobe Summit. Collaborated with 10+ stakeholders, including designers, product managers, and engineers, to deliver a feature-complete MVP for internal evaluation.",
           achievements: [
-            "Developed Chrome Extension with real-time page content summarization",
-            "Integrated unique patent-pending feature for enhanced context awareness",
-            "Collaborated with cross-functional teams to deliver MVP on schedule",
-            "Integrated Adobe RSP UI with backend APIs for real-time LLM interactions"
+            "Built an AI-powered Chrome Extension with real-time, LLM-powered webpage summarization",
+            "Core functionality later featured at Adobe Summit (U.S. patent application filed May 2026)",
+            "Collaborated with 10+ stakeholders across design, product, and engineering",
+            "Delivered a feature-complete MVP for internal evaluation and future product exploration"
           ]
         },
         fidelity: {
           position: "Full Stack Software Engineer Intern",
-          description: "Built a web app demo using JavaScript, Angular, HTML, and Fidelity UI components. Implemented fillable PDF functionality and connected to product APIs via HTTPClient, integrating into main product pipeline.",
+          description: "Built an internal web application using Angular, JavaScript, HTML, and Fidelity UI components to modernize enterprise document workflows, connecting to product APIs via HTTPClient.",
           achievements: [
-            "Built web app demo with JavaScript, Angular, and Fidelity UI components",
-            "Implemented fillable PDF functionality using pdf.js and ngx-extended-pdf-viewer",
-            "Connected to product APIs via HTTPClient for main product pipeline integration",
-            "Projected to save millions annually by reducing manual paperwork",
-            "Demoed to senior leadership, greatly exceeding expectations"
+            "Built an internal web application with Angular, JavaScript, HTML, and Fidelity UI components",
+            "Modernized enterprise document workflows, connecting to product APIs via HTTPClient",
+            "Developed a solution projected to save millions annually by reducing manual paperwork and operational overhead",
+            "Presented the project to senior leadership"
           ]
         },
         tongues: {
@@ -223,7 +237,7 @@ export const translations: Record<Language, Translations> = {
       title: "自己紹介",
       heading: "コンピュータサイエンス大学院生 & ソフトウェアエンジニア",
       paragraph1: "こんにちは、私はアンドリューです。ペンシルベニア大学でコンピュータサイエンスの大学院生として、コンピュータ・情報科学のMSEを追求しています。最近、ユタ大学でコンピュータサイエンスの学士号（優等）を3.81のGPAと学部長表彰を受けて修了しました。",
-      paragraph2: "AdobeやFidelity Investmentsなどのトップ企業での経験を持ち、特許出願中の機能を備えたAI搭載ブラウザ拡張機能から高性能PDFリーダーまで、あらゆるものに取り組んできました。AI、機械学習、FinTech、フルスタック開発に情熱を持っています。",
+      paragraph2: "AdobeやFidelity Investmentsなどのトップ企業での経験を持ち、React Nativeのモバイル体験やLLMを活用したボイスエージェントから、特許出願中の機能を備えたAI搭載ブラウザ拡張機能まで、幅広く取り組んできました。AI、機械学習、FinTech、フルスタック開発に情熱を持っています。",
       currentEducation: "現在の教育",
       previousDegree: "以前の学位"
     },
@@ -237,7 +251,7 @@ export const translations: Record<Language, Translations> = {
       items: {
         shopu: {
           title: "ShopU",
-          description: "卒業プロジェクト：大学生向けのソーシャルコマースアプリを構築し、エンドツーエンドのMVPを提供。コンテンツの関連性を向上させるMLベースのランキングアルゴリズム（TF-IDF + boosting）を開発し、迅速な反復のためにUIコンポーネントとCSSの90%を設計しました。"
+          description: "卒業制作：5人のアジャイルチームで大学生向けのフルスタックソーシャルコマースプラットフォームを構築し、8名の初期パイロットユーザーでテストしたエンドツーエンドのMVPを提供。TF-IDFとboostingを用いたMLベースのランキングアルゴリズムを開発し、時系列ベースラインに対して適合率と再現率を改善して、ユーザーの興味に合った出品をより適切に表示しました。"
         },
         oldbailey: {
           title: "OldBaileyProject",
@@ -259,25 +273,34 @@ export const translations: Record<Language, Translations> = {
       keyAchievements: "主な成果:",
       technologiesUsed: "使用技術:",
       items: {
+        adobeReturning: {
+          position: "復帰ソフトウェアエンジニアインターン",
+          description: "AdobeのエンタープライズAI製品の一つ向けにReact Nativeのモバイル体験を提供し、3つのバックエンドデータソースを統一フィードに統合して、関連性が高くユーザーが設定可能なアラートを積極的に顧客へ提示。インフラを所有するチームと連携し、音声認識、LLMを活用したワークフロー、音声合成を統合した新しいボイスエージェントワーカーを開発しました。",
+          achievements: [
+            "3つの統合バックエンドデータソースから、ユーザー設定可能なアラートを積極的に提示するReact Nativeモバイル体験を提供",
+            "既存実装をモデルにした新しいボイスエージェントワーカーを開発し、約3週間のセットアップを節約",
+            "上級リーダーシップ（複数のVP）へのライブデモを実施",
+            "Claude、Claude Skills、MCPを活用し、コードベースの調査・デバッグ・実装で個人の開発速度を約2倍に向上"
+          ]
+        },
         adobe: {
           position: "ソフトウェアエンジニアインターン",
-          description: "Vite + Reactを使用して、ページコンテンツをリアルタイムで要約し、強化されたコンテキスト認識のための独自の特許出願中の機能を組み込んだ機能豊富なChrome拡張機能プロトタイプを開発。デザイナー、PM、エンジニアと協力して、内部レビューのためにスケジュール通りに機能完全なMVPを提供しました。",
+          description: "ReactとViteを使用してAIを活用したChrome拡張機能を開発し、LLMによる文脈解析でウェブページの内容をリアルタイムに要約。中核機能は後にAdobe Summitで紹介されました。デザイナー、プロダクトマネージャー、エンジニアを含む10名以上のステークホルダーと協力し、内部評価用の機能完全なMVPを提供しました。",
           achievements: [
-            "リアルタイムページコンテンツ要約機能を備えたChrome拡張機能を開発",
-            "強化されたコンテキスト認識のための独自の特許出願中の機能を統合",
-            "クロスファンクショナルチームと協力してスケジュール通りにMVPを提供",
-            "リアルタイムLLM相互作用のためにAdobe RSP UIをバックエンドAPIと統合"
+            "LLMを活用したウェブページのリアルタイム要約を備えたAI搭載Chrome拡張機能を構築",
+            "中核機能は後にAdobe Summitで紹介（米国特許出願、2026年5月出願）",
+            "デザイン、プロダクト、エンジニアリングにまたがる10名以上のステークホルダーと協力",
+            "内部評価および将来の製品検討のための機能完全なMVPを提供"
           ]
         },
         fidelity: {
           position: "フルスタックソフトウェアエンジニアインターン",
-          description: "JavaScript、Angular、HTML、およびFidelity UIコンポーネントを使用してWebアプリデモを構築。記入可能なPDF機能を実装し、HTTPClient経由で製品APIに接続し、メインプロダクトパイプラインに統合しました。",
+          description: "Angular、JavaScript、HTML、Fidelity UIコンポーネントを使用して社内Webアプリケーションを構築し、エンタープライズの文書ワークフローを近代化。HTTPClient経由で製品APIに接続しました。",
           achievements: [
-            "JavaScript、Angular、およびFidelity UIコンポーネントを使用してWebアプリデモを構築",
-            "pdf.jsとngx-extended-pdf-viewerを使用して記入可能なPDF機能を実装",
-            "メインプロダクトパイプライン統合のためにHTTPClient経由で製品APIに接続",
-            "手動の書類作業を削減することで年間数百万ドルを節約すると予測",
-            "上級リーダーシップにデモを行い、期待を大きく上回る結果を達成"
+            "Angular、JavaScript、HTML、Fidelity UIコンポーネントで社内Webアプリケーションを構築",
+            "エンタープライズの文書ワークフローを近代化し、HTTPClient経由で製品APIに接続",
+            "手作業の書類作業と運用負荷を削減し、年間数百万ドルの節約が見込まれるソリューションを開発",
+            "プロジェクトを上級リーダーシップに発表"
           ]
         },
         tongues: {
@@ -337,7 +360,7 @@ export const translations: Record<Language, Translations> = {
       title: "关于我",
       heading: "计算机科学研究生 & 软件工程师",
       paragraph1: "你好，我是安德鲁，宾夕法尼亚大学计算机科学研究生，正在攻读计算机与信息科学硕士学位。最近，我在犹他大学完成了计算机科学学士学位（荣誉），GPA为3.81，并获得院长名单认可。",
-      paragraph2: "在Adobe和富达投资等顶级公司有工作经验，我从事过从具有专利申请功能的AI驱动浏览器扩展到高性能PDF阅读器等各个方面。我对AI、机器学习、金融科技和全栈开发充满热情。",
+      paragraph2: "在Adobe和富达投资等顶级公司拥有工作经验，我从React Native移动体验、LLM驱动的语音代理，到具有专利申请功能的AI驱动浏览器扩展，涉猎广泛。我对AI、机器学习、金融科技和全栈开发充满热情。",
       currentEducation: "当前教育",
       previousDegree: "之前的学位"
     },
@@ -351,7 +374,7 @@ export const translations: Record<Language, Translations> = {
       items: {
         shopu: {
           title: "ShopU",
-          description: "高级毕业设计项目：为大学生构建了一个社交商务应用，交付了端到端的MVP。开发了基于机器学习的排名算法（TF-IDF + boosting）以提高内容相关性，并设计了90%的UI组件和CSS以实现快速迭代。"
+          description: "高级毕业设计：在五人敏捷团队中为大学生构建了全栈社交商务平台，交付了由8名早期试点用户测试的端到端MVP。开发了使用TF-IDF和boosting的基于机器学习的排名算法，相对于按时间排序的基线提高了精确率和召回率，从而更好地呈现符合用户兴趣的商品。"
         },
         oldbailey: {
           title: "OldBaileyProject",
@@ -373,25 +396,34 @@ export const translations: Record<Language, Translations> = {
       keyAchievements: "主要成就：",
       technologiesUsed: "使用的技术：",
       items: {
+        adobeReturning: {
+          position: "回归软件工程师实习生",
+          description: "为Adobe的一款企业级AI产品交付了React Native移动体验，将3个后端数据源整合为统一信息流，主动向客户呈现相关且可由用户配置的提醒。与拥有基础设施的团队合作，开发了集成语音识别、LLM驱动工作流和语音合成的全新语音代理worker。",
+          achievements: [
+            "交付React Native移动体验，从3个统一的后端数据源主动呈现可由用户配置的提醒",
+            "开发了以现有实现为模型的全新语音代理worker，节省约3周的搭建时间",
+            "向高级领导层（多位VP）进行了现场演示",
+            "利用Claude、Claude Skills和MCP进行代码库探索、调试和实现，将个人开发速度提升近2倍"
+          ]
+        },
         adobe: {
           position: "软件工程师实习生",
-          description: "使用Vite + React开发了一个功能丰富的Chrome扩展原型，可实时总结页面内容，并集成了独特的专利申请功能以增强上下文感知。与设计师、产品经理和工程师合作，按时交付了功能完整的MVP供内部审查。",
+          description: "使用React和Vite开发了一个AI驱动的Chrome扩展，通过LLM驱动的上下文分析实时总结网页内容；核心功能后来在Adobe Summit上展示。与包括设计师、产品经理和工程师在内的10多名利益相关者合作，交付了用于内部评估的功能完整MVP。",
           achievements: [
-            "开发了具有实时页面内容摘要功能的Chrome扩展",
-            "集成了独特的专利申请功能以增强上下文感知",
-            "与跨职能团队合作按时交付MVP",
-            "将Adobe RSP UI与后端API集成以实现实时LLM交互"
+            "构建了具有实时、LLM驱动网页摘要功能的AI驱动Chrome扩展",
+            "核心功能后来在Adobe Summit上展示（美国专利申请于2026年5月提交）",
+            "与设计、产品和工程领域的10多名利益相关者合作",
+            "交付用于内部评估和未来产品探索的功能完整MVP"
           ]
         },
         fidelity: {
           position: "全栈软件工程师实习生",
-          description: "使用JavaScript、Angular、HTML和富达UI组件构建了Web应用演示。实现了可填写PDF功能，并通过HTTPClient连接到产品API，集成到主要产品管道中。",
+          description: "使用Angular、JavaScript、HTML和富达UI组件构建了内部Web应用，以现代化企业文档工作流，并通过HTTPClient连接到产品API。",
           achievements: [
-            "使用JavaScript、Angular和富达UI组件构建了Web应用演示",
-            "使用pdf.js和ngx-extended-pdf-viewer实现了可填写PDF功能",
-            "通过HTTPClient连接到产品API以集成到主要产品管道",
-            "预计通过减少手动文书工作每年可节省数百万美元",
-            "向高级领导层演示，大大超出预期"
+            "使用Angular、JavaScript、HTML和富达UI组件构建了内部Web应用",
+            "现代化企业文档工作流，并通过HTTPClient连接到产品API",
+            "开发的解决方案预计通过减少手动文书工作和运营开销每年可节省数百万美元",
+            "向高级领导层展示了该项目"
           ]
         },
         tongues: {

@@ -5,12 +5,12 @@ export const career = [
     position: "Returning Software Engineer Intern",
     duration: "May 2026 - Aug 2026",
     location: "San Jose, CA",
-    description: "Delivered a React Native mobile experience for one of Adobe's enterprise AI products, integrating multiple backend data sources into a unified feed to proactively surface relevant, user-configurable alerts to customers. Developed a new voice agent worker integrating speech-to-text, LLM-powered workflows, and text-to-speech, partnering with the infrastructure-owning team.",
-    technologies: ["React Native", "Node.js", "REST APIs", "LiveKit", "Speech-to-Text", "LLM Integration", "Text-to-Speech", "Claude", "MCP"],
+    description: "Delivered a React Native mobile experience for one of Adobe's enterprise AI products, integrating 3 backend data sources into a unified feed to proactively surface relevant, user-configurable alerts to customers. Developed a new voice agent worker integrating speech-to-text, LLM-powered workflows, and text-to-speech, partnering with the infrastructure-owning team.",
+    technologies: ["React Native", "Node.js", "REST APIs", "Speech-to-Text", "LLM Integration", "Text-to-Speech", "Claude", "Claude Skills", "MCP"],
     achievements: [
-      "Delivered a React Native mobile experience enabling proactive, user-configurable alerts from unified backend data sources",
+      "Delivered a React Native mobile experience surfacing proactive, user-configurable alerts from 3 unified backend data sources",
       "Developed a new voice agent worker modeled on an existing implementation, saving an estimated 3 weeks of setup",
-      "Earned a live SVP demonstration within 1.5 months of the internship",
+      "Earned a live demonstration to senior leadership (multiple VPs)",
       "Accelerated personal development velocity by nearly 2x using Claude, Claude Skills, and MCP for codebase exploration, debugging, and implementation"
     ],
     current: true
@@ -21,14 +21,13 @@ export const career = [
     position: "Software Engineer Intern",
     duration: "May 2025 - Aug 2025",
     location: "San Jose, CA",
-    description: "Developed a feature-rich Chrome Extension prototype in Vite + React that summarizes page content in real-time and incorporates a unique, patent-pending feature for enhanced context awareness. Core functionality was later featured at Adobe Summit. Collaborated with designers, PMs, and engineers to deliver feature-complete MVP on schedule for internal review.",
+    description: "Developed an AI-powered Chrome Extension using React and Vite that summarized webpage content in real time through LLM-powered contextual analysis; core functionality was later featured at Adobe Summit. Collaborated with 10+ stakeholders, including designers, product managers, and engineers, to deliver a feature-complete MVP for internal evaluation.",
     technologies: ["Vite", "React", "JavaScript", "Chrome Extension API", "Adobe RSP UI", "LLM Integration"],
     achievements: [
-      "Developed Chrome Extension with real-time page content summarization",
-      "Integrated unique patent-pending feature for enhanced context awareness (U.S. patent application filed May 2026)",
-      "Core functionality later featured at Adobe Summit",
-      "Collaborated with cross-functional teams to deliver MVP on schedule",
-      "Integrated Adobe RSP UI with backend APIs for real-time LLM interactions"
+      "Built an AI-powered Chrome Extension with real-time, LLM-powered webpage summarization",
+      "Core functionality later featured at Adobe Summit (U.S. patent application filed May 2026)",
+      "Collaborated with 10+ stakeholders across design, product, and engineering",
+      "Delivered a feature-complete MVP for internal evaluation and future product exploration"
     ],
     current: false
   },
@@ -38,14 +37,13 @@ export const career = [
     position: "Full Stack Software Engineer Intern",
     duration: "Jun 2024 - Aug 2024",
     location: "Salt Lake City, UT",
-    description: "Built a web app demo using JavaScript, Angular, HTML, and Fidelity UI components. Implemented fillable PDF functionality and connected to product APIs via HTTPClient, integrating into main product pipeline.",
-    technologies: ["JavaScript", "Angular", "HTML", "Fidelity UI", "pdf.js", "ngx-extended-pdf-viewer", "HTTPClient"],
+    description: "Built an internal web application using Angular, JavaScript, HTML, and Fidelity UI components to modernize enterprise document workflows, connecting to product APIs via HTTPClient.",
+    technologies: ["JavaScript", "Angular", "HTML", "Fidelity UI", "HTTPClient"],
     achievements: [
-      "Built web app demo with JavaScript, Angular, and Fidelity UI components",
-      "Implemented fillable PDF functionality using pdf.js and ngx-extended-pdf-viewer",
-      "Connected to product APIs via HTTPClient for main product pipeline integration",
-      "Projected to save millions annually by reducing manual paperwork",
-      "Demoed to senior leadership, greatly exceeding expectations"
+      "Built an internal web application with Angular, JavaScript, HTML, and Fidelity UI components",
+      "Modernized enterprise document workflows, connecting to product APIs via HTTPClient",
+      "Developed a solution projected to save millions annually by reducing manual paperwork and operational overhead",
+      "Presented the project to senior leadership"
     ],
     current: false
   },

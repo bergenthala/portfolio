@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "ShopU",
-    description: "Senior capstone project: built a social commerce app for college students, delivering end-to-end MVP. Developed ML-based ranking algorithm (TF-IDF + boosting) to improve content relevance and designed 90% of UI components and CSS for rapid iteration.",
+    description: "Senior capstone: built a full-stack social commerce platform for college students in a five-person Agile team, delivering an end-to-end MVP tested with 8 early pilot users. Developed an ML-based ranking algorithm using TF-IDF and boosting, improving precision and recall over a chronological baseline to better surface listings matching user interests.",
     image: "/projects/shopu.png",
     technologies: ["Python", "React", "Node.js", "JavaScript", "Git", "TF-IDF", "Machine Learning", "Agile"],
     github: "https://github.com/bergenthala/ShopU",
