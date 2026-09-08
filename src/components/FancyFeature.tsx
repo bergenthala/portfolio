@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const codeSnippet = `// AI-Powered Portfolio
-const portfolio = {
-  name: "Andrew Bergenthal",
-  skills: ["React", "TypeScript", "AI/ML"],
-  experience: ["Adobe", "Fidelity"],
-  projects: ["OldBaileyProject", "Sprite Editor"],
-  
-  async buildPortfolio() {
-    const innovation = await this.think();
-    const code = await this.create();
-    return { innovation, code };
-  }
-};`;
+const snippet = `type Signal = { source: string; score: number };
+
+async function rankAlerts(feeds: Signal[][]) {
+  const merged = feeds.flat().sort((a, b) => b.score - a.score);
+  return merged.filter((s, i, arr) =>
+    arr.findIndex((x) => x.source === s.source) === i
+  );
+}
+
+// Adobe internships: unify backends → proactive alerts
+const feed = await rankAlerts([crm, telemetry, tickets]);`;
 
 export default function FancyFeature() {
   const [code, setCode] = useState('');
@@ -23,94 +21,92 @@ export default function FancyFeature() {
     setCode('');
     setIsTyping(true);
     let index = 0;
-    const timer = setInterval(() => {
-      if (index < codeSnippet.length) {
-        setCode(codeSnippet.slice(0, index + 1));
+    const timer = window.setInterval(() => {
+      if (index < snippet.length) {
+        setCode(snippet.slice(0, index + 1));
         index++;
       } else {
         setIsTyping(false);
-        clearInterval(timer);
+        window.clearInterval(timer);
       }
-    }, 50);
-
-    return () => clearInterval(timer);
+    }, 18);
+    return () => window.clearInterval(timer);
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Cool Coding Demo
-          </h2>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+    <section className="py-24 bg-[var(--code)] text-sky-50 relative overflow-hidden">
+      <div
+        className="absolute inset-0 opacity-40 pointer-events-none"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 20% 20%, rgba(56,189,248,0.25), transparent 35%), radial-gradient(circle at 80% 60%, rgba(14,165,233,0.18), transparent 40%)',
+        }}
+      />
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-400 mb-3">
+              From internship → interface
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-5 leading-tight">
+              Code that ranks signal, not noise
+            </h2>
+            <p className="text-sky-100/75 text-lg leading-relaxed mb-8">
+              The demos below are tiny systems — sorting, search, parsing, scoring —
+              the same building blocks behind production feeds, agents, and tooling.
+            </p>
+            <div className="space-y-3 text-sm text-sky-100/90">
+              {[
+                'Deterministic algorithms you can step through',
+                'UI state that mirrors real data pipelines',
+                'Typed React with Framer Motion for feedback, not decoration',
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <span className="mt-1 w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_12px_rgba(56,189,248,0.8)]" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+            <a
+              href="#demos"
+              className="inline-flex mt-8 px-5 py-3 rounded-lg bg-sky-400 text-slate-950 font-semibold hover:bg-sky-300 transition-colors"
             >
-              <h3 className="text-2xl font-semibold mb-6">
-                Interactive Code Display
-              </h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                This is a live demonstration of my coding skills! Watch as I showcase 
-                a JavaScript snippet that represents my portfolio in code form. 
-                The typing animation is built with React and Framer Motion.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <div className="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
-                  <span>Real-time typing animation</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 bg-blue-400 rounded-full mr-3"></div>
-                  <span>React hooks & state management</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 bg-purple-400 rounded-full mr-3"></div>
-                  <span>Framer Motion animations</span>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              className="bg-gray-900 rounded-2xl p-6 overflow-hidden"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex items-center mb-4">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                </div>
-                <span className="ml-4 text-gray-400 text-sm">portfolio.js</span>
-              </div>
-              
-              <pre className="text-green-400 font-mono text-sm leading-relaxed">
-                <code>{code}</code>
-                {isTyping && (
-                  <motion.span
-                    className="text-white"
-                    animate={{ opacity: [1, 0] }}
-                    transition={{ duration: 0.8, repeat: Infinity }}
-                  >
-                    |
-                  </motion.span>
-                )}
-              </pre>
-            </motion.div>
-          </div>
-        </motion.div>
+              Open the labs →
+            </a>
+          </motion.div>
+
+          <motion.div
+            className="rounded-2xl border border-sky-500/20 bg-slate-950/80 shadow-2xl shadow-sky-950/40 overflow-hidden"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-white/5">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-300" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+              <span className="ml-3 font-mono text-xs text-sky-200/60">rankAlerts.ts</span>
+            </div>
+            <pre className="p-5 font-mono text-[12px] md:text-sm leading-relaxed text-emerald-300 overflow-x-auto min-h-[280px]">
+              <code>{code}</code>
+              {isTyping && (
+                <motion.span
+                  className="text-white"
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.7, repeat: Infinity }}
+                >
+                  ▍
+                </motion.span>
+              )}
+            </pre>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

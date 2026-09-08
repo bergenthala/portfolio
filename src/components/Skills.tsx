@@ -9,15 +9,18 @@ export default function Skills() {
   const t = translations[language];
   
   return (
-    <section id="skills" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="skills" className="section-shell py-24 bg-[var(--surface)]">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent-deep mb-3 text-center">
+            Toolkit
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-ink">
             {t.skills.title}
           </h2>
           
@@ -25,21 +28,21 @@ export default function Skills() {
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.category}
-                className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+                className="glass-panel p-6 rounded-2xl hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
               >
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                <h3 className="text-xl font-semibold mb-4 text-ink">
                   {skill.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {skill.items.map((item) => (
                     <motion.span
                       key={item}
-                      className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                      className="tag-chip"
                       whileHover={{ scale: 1.05 }}
                     >
                       {item}

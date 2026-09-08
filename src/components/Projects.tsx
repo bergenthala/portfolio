@@ -21,15 +21,18 @@ export default function Projects() {
   };
   
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="projects" className="section-shell py-24 bg-[var(--bg)] transition-colors">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent-deep mb-3 text-center">
+            Selected work
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-ink">
             {t.projects.title}
           </h2>
           
@@ -39,23 +42,23 @@ export default function Projects() {
               return (
               <motion.div
                 key={project.id}
-                className="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+                className="glass-panel rounded-2xl overflow-hidden hover:shadow-xl transition-shadow"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
               >
-                <div className="h-48 bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center">
-                  <span className="text-gray-500">Project Image Placeholder</span>
+                <div className="h-48 bg-gradient-to-br from-sky-100 via-slate-100 to-cyan-100 dark:from-slate-800 dark:via-slate-900 dark:to-sky-950 flex items-center justify-center">
+                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400 tracking-wide">project preview</span>
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                  <h3 className="text-2xl font-bold mb-3 text-ink">
                     {projectT?.title || project.title}
                   </h3>
                   
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-muted mb-4 leading-relaxed">
                     {projectT?.description || project.description}
                   </p>
                   
@@ -63,7 +66,7 @@ export default function Projects() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                        className="tag-chip"
                       >
                         {tech}
                       </span>
