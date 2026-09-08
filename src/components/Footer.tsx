@@ -12,7 +12,7 @@ export default function Footer() {
     { name: 'GitHub', url: 'https://github.com/bergenthala', icon: '🐙' },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/andrew-b-92810518a', icon: '💼' },
     { name: 'Email', url: 'mailto:bergenthalandrew@gmail.com', icon: '📧' },
-    { name: 'Resume', url: '/Resume_2025.pdf', icon: '📄' }
+    { name: 'Resume', url: `${import.meta.env.BASE_URL}Andrew_Bergenthal_Resume_2026.pdf`, icon: '📄' }
   ];
 
   return (
@@ -70,7 +70,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center">
                   <span className="text-blue-400 mr-3">📄</span>
-                  <a href="/Resume_2025.pdf" target="_blank" className="hover:text-blue-300 transition-colors">
+                  <a href={`${import.meta.env.BASE_URL}Andrew_Bergenthal_Resume_2026.pdf`} target="_blank" className="hover:text-blue-300 transition-colors">
                     {t.footer.downloadResume}
                   </a>
                 </div>

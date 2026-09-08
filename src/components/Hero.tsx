@@ -207,7 +207,7 @@ export default function Hero() {
               {t.hero.viewWork}
             </motion.button>
             <motion.a
-              href="/Resume_2025.pdf"
+              href={`${import.meta.env.BASE_URL}Andrew_Bergenthal_Resume_2026.pdf`}
               target="_blank"
               className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors inline-block"
               whileHover={{ scale: 1.05 }}
