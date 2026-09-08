@@ -4,6 +4,9 @@ import SortingVisualizer from './SortingVisualizer';
 import Pathfinder from './Pathfinder';
 import RegexLab from './RegexLab';
 import SentimentAnalyzer from './SentimentAnalyzer';
+import BinarySearch from './BinarySearch';
+import DiffLab from './DiffLab';
+import LruCache from './LruCache';
 
 const demos = [
   {
@@ -19,6 +22,27 @@ const demos = [
     tag: 'Graphs',
     blurb: 'BFS flood fill vs A* with Manhattan distance on a paintable grid.',
     component: Pathfinder,
+  },
+  {
+    id: 'binary',
+    name: 'Binary Search',
+    tag: 'Algorithms',
+    blurb: 'O(log n) probes that shrink the window until the target is found.',
+    component: BinarySearch,
+  },
+  {
+    id: 'diff',
+    name: 'Diff Lab',
+    tag: 'Strings',
+    blurb: 'LCS alignment and Levenshtein distance for before/after text.',
+    component: DiffLab,
+  },
+  {
+    id: 'lru',
+    name: 'LRU Cache',
+    tag: 'Systems',
+    blurb: 'Get/put with least-recently-used eviction — left LRU, right MRU.',
+    component: LruCache,
   },
   {
     id: 'regex',
@@ -58,13 +82,13 @@ export default function InteractiveDemos() {
             Interactive demos
           </h2>
           <p className="text-muted mt-5 text-lg leading-relaxed">
-            Not screenshots — runnable algorithms, parsers, and NLP heuristics you can poke at.
+            Not screenshots — runnable algorithms, parsers, caches, and NLP heuristics you can poke at.
             Built in React with explicit state machines and visual feedback.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-[240px_1fr] gap-6">
-          <div className="space-y-2">
+          <div className="space-y-2 max-h-[640px] overflow-y-auto pr-1">
             {demos.map((demo) => (
               <motion.button
                 key={demo.id}
@@ -111,11 +135,16 @@ export default function InteractiveDemos() {
         </div>
 
         <div className="mt-10 flex flex-wrap gap-2">
-          {['React state machines', 'Graph search', 'O(n log n) sorting', 'Regex engines', 'NLP heuristics'].map((tech) => (
-            <span
-              key={tech}
-              className="demo-chip"
-            >
+          {[
+            'React state machines',
+            'Graph search',
+            'Binary search',
+            'LCS / Levenshtein',
+            'LRU eviction',
+            'Regex engines',
+            'NLP heuristics',
+          ].map((tech) => (
+            <span key={tech} className="demo-chip">
               {tech}
             </span>
           ))}

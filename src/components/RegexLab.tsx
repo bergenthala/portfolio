@@ -4,7 +4,7 @@ const SAMPLES = [
   { pattern: '\\b(React|TypeScript|Python)\\b', text: 'Shipping React + TypeScript APIs with Python jobs in the pipeline.' },
   { pattern: '([A-Z][a-z]+)\\s([A-Z][a-z]+)', text: 'Andrew Bergenthal built ShopU at Utah and now studies at Pennsylvania.' },
   { pattern: 'https?://[\\w.-]+(?:/[\\w./-]*)?', text: 'Docs live at https://example.com/docs and https://api.example.dev/v1.' },
-  { pattern: '(\\d{3})-(\\d{3})-(\\d{4})', text: 'Reach me at 385-347-2528 or leave a message at 801-555-0199.' },
+  { pattern: '(\\d{3})-(\\d{3})-(\\d{4})', text: 'Reach me at 385-347-2528 — that is the best number to call.' },
 ];
 
 type MatchInfo = {
